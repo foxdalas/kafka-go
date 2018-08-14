@@ -362,6 +362,8 @@ func readMessageHeader(r *bufio.Reader, sz int) (offset int64, attributes int8, 
 	case 0:
 	case 1:
 		remain, err = readInt64(r, remain, &timestamp)
+	case 2:
+		remain, err = readInt64(r, remain, &timestamp)
 	default:
 		err = fmt.Errorf("unsupported message version %d found in fetch response", version)
 	}
